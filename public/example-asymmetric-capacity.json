@@ -1,0 +1,76 @@
+{
+  "rateRps": 100,
+  "nodes": [
+    {
+      "id": "ingress1",
+      "kind": "Ingress",
+      "rateRps": 100,
+      "capacity_out": 100,
+      "base_ms": 1,
+      "jitter_ms": 0,
+      "p_fail": 0
+    },
+    {
+      "id": "lb1",
+      "kind": "LoadBalancer",
+      "capacity_in": 200,
+      "capacity_out": 200,
+      "base_ms": 2,
+      "jitter_ms": 1,
+      "p_fail": 0.001,
+      "routing": {
+        "policy": "round_robin"
+      }
+    },
+    {
+      "id": "api1",
+      "kind": "Service",
+      "capacity_in": 50,
+      "capacity_out": 50,
+      "base_ms": 20,
+      "jitter_ms": 5,
+      "p_fail": 0.01
+    },
+    {
+      "id": "api2",
+      "kind": "Service",
+      "capacity_in": 50,
+      "capacity_out": 50,
+      "base_ms": 20,
+      "jitter_ms": 5,
+      "p_fail": 0.01
+    },
+    {
+      "id": "cache1",
+      "kind": "Cache",
+      "capacity_in": 100,
+      "capacity_out": 200,
+      "base_ms": 5,
+      "jitter_ms": 2,
+      "p_fail": 0.001,
+      "hitRatio": 0.8
+    },
+    {
+      "id": "db1",
+      "kind": "DB",
+      "capacity_in": 30,
+      "capacity_out": 100,
+      "base_ms": 50,
+      "jitter_ms": 10,
+      "p_fail": 0.005
+    },
+    {
+      "id": "sink1",
+      "kind": "Sink"
+    }
+  ],
+  "links": [
+    { "from": "ingress1", "to": "lb1" },
+    { "from": "lb1", "to": "api1" },
+    { "from": "lb1", "to": "api2" },
+    { "from": "api1", "to": "cache1" },
+    { "from": "api2", "to": "cache1" },
+    { "from": "cache1", "to": "db1" },
+    { "from": "db1", "to": "sink1" }
+  ]
+}

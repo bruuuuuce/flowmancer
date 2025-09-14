@@ -1,0 +1,153 @@
+/* Console-specific contrast improvements */
+
+/* Ensure console always has high contrast regardless of theme */
+.console-log {
+  /* Dark background for both themes for terminal-like feel */
+  background: #0d1117 !important;
+}
+
+/* Light theme specific console adjustments */
+.theme-light .console-log {
+  /* Keep dark background for terminal aesthetic */
+  background: #0d1117 !important;
+  color: #f0f6fc !important;
+}
+
+.theme-light .console-line {
+  color: #f0f6fc !important;
+}
+
+.theme-light .console-input {
+  background: var(--console-bg);
+  color: var(--console-text);
+  border-color: var(--border-secondary);
+}
+
+.theme-light .console-prompt {
+  color: #2dd4bf !important;
+}
+
+.theme-light .console-error {
+  color: #ff6b6b !important;
+}
+
+/* Dark theme enhancements */
+.theme-dark .console-log {
+  background: #0d1117 !important;
+}
+
+.theme-dark .console-line {
+  color: #f0f6fc !important;
+}
+
+.theme-dark .console-input {
+  background: var(--console-bg);
+  color: var(--console-text);
+  border-color: var(--border-secondary);
+}
+
+/* Improve readability with syntax highlighting */
+.console-line {
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+}
+
+/* Command echo styling - for lines starting with > */
+.console-command {
+  color: #58a6ff !important;
+  font-weight: 600;
+  background: rgba(88, 166, 255, 0.05);
+  padding: 2px 4px;
+  border-left: 3px solid #58a6ff;
+  margin: 4px 0;
+}
+
+/* Success messages */
+.console-success {
+  color: #3fb950 !important;
+  font-weight: 500;
+}
+
+/* Warning messages */
+.console-line:has-text('Warning'),
+.console-line:has-text('Warn') {
+  color: #d29922 !important;
+}
+
+/* Info messages */
+.console-info {
+  color: #58a6ff !important;
+  opacity: 0.95;
+}
+
+/* Make error messages more prominent */
+.console-error {
+  color: #ff6b6b !important;
+  background: rgba(255, 107, 107, 0.1);
+  padding: 4px 6px !important;
+  border-radius: 3px;
+  margin: 2px 0;
+  font-weight: 600 !important;
+}
+
+/* Input field enhancements */
+.console-input {
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  padding: 10px 12px !important;
+}
+
+.console-input::placeholder {
+  color: #6e7681 !important;
+  opacity: 1 !important;
+}
+
+.console-input:focus {
+  outline: none !important;
+  border-color: #58a6ff !important;
+  box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.2) !important;
+}
+
+/* Console help text visibility */
+.console-help {
+  color: #8b949e !important;
+  background: rgba(139, 148, 158, 0.1) !important;
+  border: 1px solid rgba(139, 148, 158, 0.2);
+  font-size: 13px !important;
+}
+
+/* Improve scrollbar in console */
+.console-log::-webkit-scrollbar {
+  width: 10px;
+}
+
+.console-log::-webkit-scrollbar-track {
+  background: #161b22;
+  border-radius: 5px;
+}
+
+.console-log::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 5px;
+  border: 2px solid #161b22;
+}
+
+.console-log::-webkit-scrollbar-thumb:hover {
+  background: #484f58;
+}
+
+/* Animation for new log entries */
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.console-line {
+  animation: slideInFromBottom 0.2s ease-out;
+}

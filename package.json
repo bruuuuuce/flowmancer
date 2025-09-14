@@ -1,0 +1,57 @@
+{
+  "name": "flowmancer",
+  "version": "0.2.0",
+  "description": "Master the art of distributed system flows - Interactive traffic flow simulator and analyzer",
+  "keywords": [
+    "flowmancer",
+    "traffic-simulator",
+    "flow-visualization",
+    "microservices",
+    "distributed-systems",
+    "network-analysis",
+    "system-monitoring",
+    "performance-analysis",
+    "vue3",
+    "typescript",
+    "simulation",
+    "real-time-metrics"
+  ],
+  "homepage": "https://github.com/yourusername/flowmancer#readme",
+  "bugs": {
+    "url": "https://github.com/yourusername/flowmancer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/flowmancer.git"
+  },
+  "license": "MIT",
+  "author": "Your Name",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:ui": "vitest --ui",
+    "test:e2e": "playwright install --with-deps && playwright test",
+    "test:e2e:headed": "playwright install --with-deps && playwright test --headed",
+    "test:e2e:ci": "playwright install --with-deps && playwright test --reporter=line"
+  },
+  "dependencies": {
+    "@types/dagre": "^0.7.53",
+    "dagre": "^0.8.5",
+    "elkjs": "^0.10.0",
+    "vue": "^3.4.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.46.0",
+    "@vitejs/plugin-vue": "^5.0.0",
+    "@vitest/coverage-v8": "^1.6.1",
+    "@vue/test-utils": "^2.4.5",
+    "jsdom": "^24.0.0",
+    "typescript": "^5.4.0",
+    "vite": "^5.2.0",
+    "vitest": "^1.6.0"
+  }
+}

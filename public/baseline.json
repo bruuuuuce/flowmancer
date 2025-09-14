@@ -1,0 +1,23 @@
+{
+  "rateRps": 5,
+  "latency": {
+    "base": 20,
+    "jitter": 10
+  },
+  "nodes": [
+    { "id": "ingress", "kind": "Source", "rateRps": 5, "timeout_ms": 5000 },
+    { "id": "svcA", "kind": "Service", "capacity": 100, "base_ms": 20, "jitter_ms": 10, "p_fail": 0 },
+    { "id": "sink", "kind": "Sink" },
+    { "id": "sink2", "kind": "Sink" },
+    { "id": "sink3", "kind": "Sink" },
+    { "id": "sink4", "kind": "Sink" }
+  ],
+  "links": [
+    { "from": "ingress", "to": "svcA" },
+    { "from": "svcA", "to": "sink" },
+    { "from": "svcA", "to": "sink2" },
+    { "from": "svcA", "to": "sink3" },
+    { "from": "svcA", "to": "sink4" },
+    { "from": "sink", "to": "sink4" }
+  ]
+}

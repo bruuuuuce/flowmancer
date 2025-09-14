@@ -1,0 +1,169 @@
+/* Base theme variables - Dark theme as default */
+:root,
+.theme-dark {
+  /* Primary colors */
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --primary-light: rgba(59, 130, 246, 0.1);
+  
+  /* Background colors */
+  --bg-primary: #0a0f1a;
+  --bg-secondary: #151b28;
+  --bg-tertiary: #1e293b;
+  --bg-overlay: rgba(10, 15, 26, 0.98);
+  --bg-hover: rgba(71, 85, 105, 0.25);
+  --bg-canvas: #060911;
+  
+  /* Text colors */
+  --text-primary: #f8fafc;
+  --text-secondary: #e2e8f0;
+  --text-tertiary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-inverse: #0f172a;
+  
+  /* Border colors */
+  --border-primary: #334155;
+  --border-secondary: #475569;
+  --border-light: rgba(71, 85, 105, 0.3);
+  
+  /* Status colors */
+  --success: #10b981;
+  --success-bg: rgba(16, 185, 129, 0.1);
+  --warning: #f59e0b;
+  --warning-bg: rgba(245, 158, 11, 0.1);
+  --error: #ef4444;
+  --error-bg: rgba(239, 68, 68, 0.1);
+  --info: #3b82f6;
+  --info-bg: rgba(59, 130, 246, 0.1);
+  
+  /* Component specific */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+  --shadow-xl: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+  
+  /* Overlay shadows */
+  --overlay-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  
+  /* Code/Console colors */
+  --console-bg: #0d1117;
+  --console-text: #f0f6fc;
+  --console-prompt: #2dd4bf;
+  --console-error: #ff6b6b;
+  
+  /* Graph/Canvas colors */
+  --node-fill: #1e293b;
+  --node-stroke: #475569;
+  --node-text: #e2e8f0;
+  --link-stroke: #475569;
+  --link-arrow: #64748b;
+  
+  /* Scrollbar */
+  --scrollbar-track: rgba(30, 41, 59, 0.5);
+  --scrollbar-thumb: #475569;
+  --scrollbar-thumb-hover: #64748b;
+}
+
+/* Light theme */
+.theme-light {
+  /* Primary colors */
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-light: rgba(37, 99, 235, 0.1);
+  
+  /* Background colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --bg-overlay: rgba(255, 255, 255, 0.98);
+  --bg-hover: rgba(148, 163, 184, 0.1);
+  --bg-canvas: #f8fafc;
+  
+  /* Text colors */
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-tertiary: #64748b;
+  --text-muted: #94a3b8;
+  --text-inverse: #ffffff;
+  
+  /* Border colors */
+  --border-primary: #e2e8f0;
+  --border-secondary: #cbd5e1;
+  --border-light: rgba(148, 163, 184, 0.2);
+  
+  /* Status colors */
+  --success: #059669;
+  --success-bg: rgba(5, 150, 105, 0.1);
+  --warning: #d97706;
+  --warning-bg: rgba(217, 119, 6, 0.1);
+  --error: #dc2626;
+  --error-bg: rgba(220, 38, 38, 0.1);
+  --info: #2563eb;
+  --info-bg: rgba(37, 99, 235, 0.1);
+  
+  /* Component specific */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+  
+  /* Overlay shadows */
+  --overlay-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  
+  /* Code/Console colors */
+  --console-bg: #ffffff;
+  --console-text: #0f172a;
+  --console-prompt: #047857;
+  --console-error: #b91c1c;
+  
+  /* Graph/Canvas colors */
+  --node-fill: #ffffff;
+  --node-stroke: #cbd5e1;
+  --node-text: #1e293b;
+  --link-stroke: #cbd5e1;
+  --link-arrow: #94a3b8;
+  
+  /* Scrollbar */
+  --scrollbar-track: rgba(241, 245, 249, 0.5);
+  --scrollbar-thumb: #cbd5e1;
+  --scrollbar-thumb-hover: #94a3b8;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.3s ease, 
+              color 0.3s ease, 
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+/* Prevent transition on page load */
+.no-transition * {
+  transition: none !important;
+}
+
+/* Global styles using theme variables */
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+}
+
+/* Scrollbar styling with theme variables */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}

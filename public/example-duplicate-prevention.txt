@@ -1,0 +1,41 @@
+# Example script demonstrating duplicate prevention
+# This script shows how the system prevents creating duplicate nodes and links
+
+# Try to create a node that already exists (if you have node 'A' in your graph)
+node add A Service
+# This will log: "Node A already exists, skipping creation"
+
+# Create some new nodes
+node add API_1 Service capacity_in=100 capacity_out=100
+node add API_2 Service capacity_in=100 capacity_out=100
+node add Cache DB capacity_in=200
+
+# Try to create the same node again
+node add API_1 LoadBalancer
+# This will log: "Node API_1 already exists, skipping creation"
+# Note: The node keeps its original type (Service)
+
+# Create some links
+link add API_1 API_2
+link add API_2 Cache
+
+# Try to create the same link again
+link add API_1 API_2
+# This will log: "Link API_1 -> API_2 already exists, skipping creation"
+
+# Try to link to a non-existent node (will fail with error)
+# Uncomment the line below to see the error:
+# link add API_1 NonExistentNode
+
+# Loop example: only creates nodes/links once even in multiple iterations
+loop 3
+  log "Loop iteration $i"
+  node add SharedResource Service
+  link add API_1 SharedResource
+  link add API_2 SharedResource
+end
+# The node and links are created in the first iteration,
+# then skipped in iterations 2 and 3
+
+# Verify final state
+log "Script complete! Check your graph for the new nodes and connections."

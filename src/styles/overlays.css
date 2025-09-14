@@ -1,0 +1,303 @@
+/* Global overlay styles using theme variables */
+.overlay {
+  position: absolute;
+  background: var(--bg-overlay);
+  border: 1px solid var(--border-secondary);
+  border-radius: 8px;
+  box-shadow: var(--overlay-shadow);
+  padding: 12px;
+  min-width: 300px;
+  max-width: 90%;
+  color: var(--text-primary);
+  backdrop-filter: blur(10px);
+}
+
+.overlay-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.overlay-header h3 {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.overlay-controls {
+  display: flex;
+  gap: 4px;
+}
+
+.overlay-btn {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: 4px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.overlay-btn:hover {
+  background: var(--primary);
+  color: var(--text-inverse);
+  border-color: var(--primary);
+}
+
+.overlay-floating {
+  z-index: 1000;
+}
+
+.overlay-fullscreen {
+  position: fixed !important;
+  top: 10px !important;
+  left: 10px !important;
+  right: 10px !important;
+  bottom: 60px !important;
+  max-width: none !important;
+  width: auto !important;
+  height: auto !important;
+  z-index: 999;
+}
+
+/* Console specific styles */
+.console-help {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  padding: 6px 8px;
+  background: var(--bg-hover);
+  border-radius: 3px;
+  font-weight: 500;
+}
+
+.console-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.console-prompt {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-weight: 700;
+  margin-right: 10px;
+  color: var(--console-prompt);
+  font-size: 15px;
+  text-shadow: 0 0 1px currentColor;
+}
+
+.console-input {
+  flex: 1;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  padding: 8px 10px;
+  border: 1px solid var(--border-secondary);
+  border-radius: 4px;
+  background: var(--console-bg);
+  color: var(--console-text);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.console-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+.console-log {
+  max-height: 300px;
+  overflow: auto;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 13px;
+  background: var(--console-bg);
+  border: 1px solid var(--border-secondary);
+  border-radius: 4px;
+  padding: 12px;
+  line-height: 1.6;
+}
+
+.console-line {
+  padding: 4px 2px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: var(--console-text);
+  font-weight: 400;
+  letter-spacing: 0.3px;
+}
+
+.console-line:hover {
+  background: var(--bg-hover);
+}
+
+.console-error {
+  color: var(--console-error) !important;
+  font-weight: bold;
+}
+
+/* Config overlay styles */
+.config-textarea {
+  width: 100%;
+  min-height: 300px;
+  font-family: monospace;
+  font-size: 12px;
+  padding: 8px;
+  border: 1px solid var(--border-secondary);
+  border-radius: 4px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  resize: vertical;
+}
+
+.config-textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+.config-error {
+  color: var(--error);
+  font-size: 12px;
+  margin-top: 8px;
+  padding: 6px;
+  background: var(--error-bg);
+  border-radius: 4px;
+  border: 1px solid var(--error);
+}
+
+/* Stats overlay */
+.stats-badges {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.stats-badge {
+  padding: 8px 12px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-secondary);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stats-badge-label {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.stats-badge-value {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.stats-table th {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  padding: 6px;
+  text-align: left;
+  border: 1px solid var(--border-light);
+  font-weight: 600;
+}
+
+.stats-table td {
+  padding: 6px;
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+}
+
+.stats-table tr:hover {
+  background: var(--bg-hover);
+}
+
+/* Scripts overlay */
+.scripts-textarea {
+  width: 100%;
+  min-height: 200px;
+  font-family: monospace;
+  font-size: 12px;
+  padding: 8px;
+  border: 1px solid var(--border-secondary);
+  border-radius: 4px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  resize: vertical;
+}
+
+.scripts-textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+.scripts-controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.scripts-status {
+  margin-top: 8px;
+  padding: 6px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.scripts-running {
+  background: var(--info-bg);
+  color: var(--info);
+  border: 1px solid var(--info);
+}
+
+.scripts-error {
+  background: var(--error-bg);
+  color: var(--error);
+  border: 1px solid var(--error);
+}
+
+/* Button styles */
+.overlay button {
+  padding: 6px 12px;
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-secondary);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.2s;
+}
+
+.overlay button:hover {
+  background: var(--primary);
+  color: var(--text-inverse);
+  border-color: var(--primary);
+}
+
+.overlay button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.overlay button:disabled:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border-color: var(--border-secondary);
+}

@@ -1,0 +1,132 @@
+# Advanced Graph Manipulation Examples
+# This script demonstrates the new graph manipulation commands
+
+log "=== Advanced Graph Manipulation Demo ==="
+log ""
+
+# 1. Create a service mesh using PUML-style syntax
+log "1. Creating service mesh with PUML syntax..."
+graph add Client:Ingress -> Gateway:LoadBalancer
+graph add Gateway -> [Auth:Service, API:Service]
+graph add API -> [Users:Service, Orders:Service, Products:Service]
+graph add Users -> UserDB:DB
+graph add Orders -> OrderDB:DB  
+graph add Products -> [ProductDB:DB, Cache:Cache]
+graph add Cache -> ProductDB
+wait 1000
+
+# 2. Create groups for logical organization
+log "2. Organizing nodes into boundary groups..."
+group create frontend "Frontend Layer" color=#4ade80
+group add-node frontend Client
+group add-node frontend Gateway
+
+group create services "Service Layer" color=#3b82f6
+group add-node services Auth
+group add-node services API
+group add-node services Users
+group add-node services Orders
+group add-node services Products
+
+group create data "Data Layer" color=#f59e0b
+group add-node data UserDB
+group add-node data OrderDB
+group add-node data ProductDB
+group add-node data Cache
+wait 1000
+
+# 3. Demonstrate node isolation
+log "3. Simulating Orders service failure - isolating node..."
+node isolate Orders both
+log "   Orders service is now completely isolated"
+wait 2000
+
+# Restore with limited connectivity
+log "   Restoring Orders service with limited connectivity..."
+graph add API -> Orders
+graph add Orders -> OrderDB
+wait 1000
+
+# 4. Demonstrate group isolation
+log "4. Simulating data layer maintenance - isolating incoming connections..."
+group isolate data in
+log "   Data layer is now isolated from incoming traffic"
+wait 2000
+
+# Restore connections
+log "   Restoring data layer connections..."
+graph add Users -> UserDB
+graph add Orders -> OrderDB
+graph add Products -> ProductDB
+graph add Cache -> ProductDB
+wait 1000
+
+# 5. Demonstrate wildcard removal
+log "5. Removing all connections from Gateway (simulating gateway failure)..."
+graph remove Gateway -> *
+wait 2000
+
+# Restore with load balancing
+log "   Restoring Gateway with new load balancing..."
+graph add Gateway -> [Auth, API]
+wait 1000
+
+# 6. Complex graph manipulation - adding monitoring
+log "6. Adding monitoring layer to all services..."
+graph add Metrics:Sink[monitoring=true] -> *
+wait 1000
+log "   Oops, that's backwards! Fixing..."
+graph remove Metrics -> *
+
+# Create monitoring connections from all services
+graph add Auth -> Metrics
+graph add API -> Metrics
+graph add Users -> Metrics
+graph add Orders -> Metrics
+graph add Products -> Metrics
+wait 1000
+
+# 7. Demonstrate chain creation
+log "7. Creating a processing pipeline..."
+graph add Input:Ingress -> Validate:Service -> Process:Service -> Store:DB -> Output:Sink
+wait 1000
+
+# 8. Isolate internal group connections
+log "8. Removing internal connections within services group..."
+group isolate services internal
+wait 1000
+
+# Restore with new topology
+log "   Creating new service topology..."
+graph add API -> [Users, Orders, Products]
+graph add Auth -> API
+wait 1000
+
+# 9. Create nodes with properties
+log "9. Creating high-capacity nodes..."
+graph add LB[capacity=500]:LoadBalancer -> [S1[capacity=200]:Service, S2[capacity=200]:Service]
+wait 1000
+
+# 10. Final cleanup demonstration
+log "10. Cleanup demonstration..."
+log "    Isolating all boundary groups..."
+group isolate frontend external
+group isolate services external
+group isolate data external
+wait 2000
+
+log "    Restoring critical paths only..."
+graph add Client -> Gateway
+graph add Gateway -> API
+graph add API -> UserDB
+wait 1000
+
+log ""
+log "=== Demo Complete ==="
+log "This demonstrated:"
+log "- PUML-style graph creation (A -> B, A -> [B,C])"
+log "- Node isolation (in/out/both)"
+log "- Group isolation (in/out/internal/external)"
+log "- Wildcard removal (A -> *, * -> B)"
+log "- Chain creation (A -> B -> C)"
+log "- Node creation with types and properties"

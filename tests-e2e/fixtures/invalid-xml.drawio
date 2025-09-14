@@ -1,0 +1,5 @@
+This is not valid XML!
+Some random text here...
+<mxfile>
+  <unclosed tag
+</mxfile>
