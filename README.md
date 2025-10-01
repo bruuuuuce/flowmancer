@@ -64,7 +64,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/abruschieri/flowmancer.git
+git clone https://github.com/bruuuuuce/flowmancer.git
 cd flowmancer
 
 # Install dependencies
@@ -413,7 +413,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📧 Contact
 
-Project Link: [https://github.com/abruschieri/flowmancer](https://github.com/abruschieri/flowmancer)
+Project Link: [https://github.com/bruuuuuce/flowmancer](https://github.com/abruschieri/flowmancer)
 Author Link: [https://heybruce.dev](https://heybruce.dev)
 
 ---
